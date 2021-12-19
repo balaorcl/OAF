@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="MainRN" windowTitle="XML Report Sample" title="XML Report Sample" controllerClass="abc.oracle.apps.fnd.webui.InvokeXMLReportCO" amDefName="abc.oracle.apps.fnd.server.TrainingAM">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:submitButton id="GenerateXML" prompt="Generate XML"/>
+            <oa:submitButton id="GenerateReport" text="Generate Report" prompt="Generate Report"/>
+            <oa:submitButton id="GenInlineRep" text="Generate Inline Report" prompt="Generate Inline Report"/>
+            <oa:header id="InlineReport" text="Inline Report">
+               <ui:contents>
+                  <oa:defaultSingleColumn id="region1" extends="/oracle/apps/xdo/oa/common/webui/DocumentViewerRn.MainRegion"/>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="MainRN" amDefName="abc.oracle.apps.fnd.server.TrainingAM" windowTitle="Item Details" title="Item Details" controllerClass="abc.oracle.apps.fnd.webui.ItemDetailsSearchCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="SearchRN" text="Search Panel Region">
+               <ui:contents>
+                  <oa:messageComponentLayout id="SearchLayoutRN" rows="3" columns="1">
+                     <ui:contents>
+                        <oa:messageChoice id="orgCodeID" prompt="Enter Org Code" pickListViewDef="" pickListViewName="InventoryOrgPopVO1" pickListDispAttr="OrganizationCode" pickListValAttr="OrganizationCode"/>
+                        <oa:messageTextInput id="itemNumID" prompt="Item Num"/>
+                     </ui:contents>
+                     <ui:footer>
+                        <oa:flowLayout id="region1">
+                           <ui:contents>
+                              <oa:submitButton id="goBtn" text="Go" prompt="Go"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:footer>
+                  </oa:messageComponentLayout>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="ResultsRN">
+               <ui:contents>
+                  <oa:table id="ItemDetailsTblRN">
+                     <ui:contents>
+                        <oa:messageStyledText id="InventoryItemId" dataType="NUMBER" prompt="Item Id" viewName="ItemDetailsVO1" viewAttr="InventoryItemId"/>
+                        <oa:messageStyledText id="ItemNum" dataType="VARCHAR2" prompt="Item Num" viewName="ItemDetailsVO1" viewAttr="ItemNum" maximumLength="40"/>
+                        <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Description" viewName="ItemDetailsVO1" viewAttr="Description" maximumLength="240"/>
+                        <oa:messageStyledText id="InventoryItemStatusCode" dataType="VARCHAR2" prompt="Status" viewName="ItemDetailsVO1" viewAttr="InventoryItemStatusCode" maximumLength="10"/>
+                        <oa:messageStyledText id="OrganizationCode" dataType="VARCHAR2" prompt="Org Code" viewName="ItemDetailsVO1" viewAttr="OrganizationCode" maximumLength="3"/>
+                     </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="region2">
+                           <ui:contents>
+                              <oa:exportButton id="Export" exportAllRows="true" text="Export Data" viewName="ItemDetailsVO1"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>
