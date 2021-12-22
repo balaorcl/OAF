@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="MainRN" amDefName="abc.oracle.apps.fnd.server.TrainingAM" windowTitle="Dept DML Page" title="Dept DML Page" controllerClass="abc.oracle.apps.fnd.webui.DeptDMLCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="DeptHDRRN" text="Dept Details">
+               <ui:contents>
+                  <oa:table id="XxabcDeptEOTblRN">
+                     <ui:contents>
+                        <oa:messageTextInput id="Deptno" dataType="NUMBER" prompt="Deptno" viewName="XxabcDeptEOVO1" viewAttr="Deptno" maximumLength="2"/>
+                        <oa:messageTextInput id="Dname" dataType="VARCHAR2" prompt="Dname" viewName="XxabcDeptEOVO1" viewAttr="Dname" maximumLength="14"/>
+                        <oa:messageTextInput id="Loc" dataType="VARCHAR2" prompt="Loc" viewName="XxabcDeptEOVO1" viewAttr="Loc" maximumLength="13"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

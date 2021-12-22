@@ -24,4 +24,9 @@
       FullName="abc.oracle.apps.fnd.server.TrainingAM"
       ObjectType="AppModule" >
    </Containee>
+   <Containee
+      Name="XxabcDeptEOVO"
+      FullName="abc.oracle.apps.fnd.server.XxabcDeptEOVO"
+      ObjectType="ViewObject" >
+   </Containee>
 </JboPackage>

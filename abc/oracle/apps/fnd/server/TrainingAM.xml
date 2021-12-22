@@ -21,4 +21,8 @@
       Name="HrmsEmployeeVO1"
       ViewObjectName="abc.oracle.apps.fnd.server.HrmsEmployeeVO" >
    </ViewUsage>
+   <ViewUsage
+      Name="XxabcDeptEOVO1"
+      ViewObjectName="abc.oracle.apps.fnd.server.XxabcDeptEOVO" >
+   </ViewUsage>
 </AppModule>

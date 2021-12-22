@@ -24,6 +24,13 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
      */
     public TrainingAMImpl() {
     }
+    
+    public void initXxabcDeptEOVO(){
+        XxabcDeptEOVOImpl vo = getXxabcDeptEOVO1();
+        vo.clearCache();
+        vo.setWhereClause(null);
+        vo.executeQuery();
+    }
 
     public XMLNode getXMLData()
      {
@@ -95,5 +102,11 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
      */
     public HrmsEmployeeVOImpl getHrmsEmployeeVO1() {
         return (HrmsEmployeeVOImpl)findViewObject("HrmsEmployeeVO1");
+    }
+
+    /**Container's getter for XxabcDeptEOVO1
+     */
+    public XxabcDeptEOVOImpl getXxabcDeptEOVO1() {
+        return (XxabcDeptEOVOImpl)findViewObject("XxabcDeptEOVO1");
     }
 }
