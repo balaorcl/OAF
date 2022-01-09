@@ -7,8 +7,11 @@ import java.io.OutputStream;
 
 import java.sql.SQLException;
 
+import oracle.apps.fnd.common.MessageToken;
+import oracle.apps.fnd.framework.OAException;
 import oracle.apps.fnd.framework.server.OAApplicationModuleImpl;
 
+import oracle.jbo.RowSetIterator;
 import oracle.jbo.XMLInterface;
 
 import oracle.jbo.domain.BlobDomain;
@@ -23,6 +26,108 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
     /**This is the default constructor (do not remove)
      */
     public TrainingAMImpl() {
+    }
+    
+    public void initGraphQuery(){
+        PositionGraphVOImpl vo = getPositionGraphVO1();
+        
+        if (vo == null){
+            MessageToken[] tokens = {new MessageToken("OBJECT_NAME", "PositionGraphVO1")};
+            throw new OAException("AK", "FWK_TBX_OBJECT_NOT_FOUND", tokens);
+        }
+        
+        if (!vo.isPreparedForExecution()) {
+            vo.executeQuery();
+        }
+        
+    }
+    
+    public void initEmpVO(){
+        XxabcEmpEOVOImpl vo = getXxabcEmpEOVO1();
+        vo.clearCache();
+        vo.executeQuery();
+    }
+    
+    public void empSave(){
+        getOADBTransaction().commit();
+        throw new OAException("Data saved successfully", OAException.INFORMATION);
+    }
+    
+    public void iterateEmpVO(){
+        XxabcEmpEOVOImpl vo = getXxabcEmpEOVO1();
+        XxabcEmpEOVORowImpl row = null;
+        RowSetIterator rowIter = vo.createRowSetIterator("EmpIter");
+        
+        System.out.println("****Emp Data****");
+        
+        while(rowIter.hasNext()){
+            row = (XxabcEmpEOVORowImpl)rowIter.next();
+            System.out.println("Emp Name="+row.getEname()+", Select Flag="+row.getselectFlag());
+        }
+        
+        rowIter.closeRowSetIterator();
+    }
+    
+    public void deleteEmpRows(){
+        XxabcEmpEOVOImpl vo = getXxabcEmpEOVO1();
+        XxabcEmpEOVORowImpl row = null;
+        RowSetIterator rowIter = vo.createRowSetIterator("EmpIter");
+        
+        System.out.println("****Emp Data****");
+        String empNos = "";
+        
+        
+        while(rowIter.hasNext()){
+            row = (XxabcEmpEOVORowImpl)rowIter.next();
+            System.out.println("Emp Name="+row.getEmpno()+", Select Flag="+row.getselectFlag());
+            
+            if(row.getselectFlag() != null && "Y".equals(row.getselectFlag())){
+                empNos += row.getEmpno()+",";
+                row.remove();
+            }
+            
+        }
+        
+        rowIter.closeRowSetIterator();
+        getOADBTransaction().commit();
+        throw new OAException ("Emp Nos deleted="+empNos, OAException.INFORMATION);
+    }    
+    
+    public void deleteEmpRowsNew(){
+        XxabcEmpEOVOImpl vo = getXxabcEmpEOVO1();
+        XxabcEmpEOVORowImpl row = null;
+        oracle.jbo.Row[] rows = vo.getFilteredRows("selectFlag", "Y");
+        int rowLength = rows.length;
+        String empNos = "";
+        
+        if(rowLength > 0){
+            for(int i=0;i<rows.length;i++){
+                row = (XxabcEmpEOVORowImpl)rows[i];
+                empNos += row.getEmpno()+",";                
+                row.remove();
+            }
+        }
+        else{
+            throw new OAException("No rows selected for deletion", OAException.INFORMATION);
+        }
+        
+        getOADBTransaction().commit();
+        throw new OAException ("Emp Nos deleted="+empNos, OAException.INFORMATION);
+    }     
+    
+    public void insertEmpRow(){
+        XxabcEmpEOVOImpl vo = getXxabcEmpEOVO1();
+        XxabcEmpEOVORowImpl row = null;
+        
+        row = (XxabcEmpEOVORowImpl)vo.createRow();
+        row.setNewRowState(row.STATUS_INITIALIZED);
+        
+        oracle.jbo.domain.Number empSeq = getOADBTransaction().getSequenceValue("XXABC_EMPNO");
+        row.setEmpno(empSeq);
+        
+        vo.first();
+        vo.insertRow(row);
+        
     }
     
     public void initXxabcDeptEOVO(){
@@ -108,5 +213,17 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
      */
     public XxabcDeptEOVOImpl getXxabcDeptEOVO1() {
         return (XxabcDeptEOVOImpl)findViewObject("XxabcDeptEOVO1");
+    }
+
+    /**Container's getter for XxabcEmpEOVO1
+     */
+    public XxabcEmpEOVOImpl getXxabcEmpEOVO1() {
+        return (XxabcEmpEOVOImpl)findViewObject("XxabcEmpEOVO1");
+    }
+
+    /**Container's getter for PositionGraphVO1
+     */
+    public PositionGraphVOImpl getPositionGraphVO1() {
+        return (PositionGraphVOImpl)findViewObject("PositionGraphVO1");
     }
 }

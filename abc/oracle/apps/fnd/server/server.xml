@@ -20,6 +20,11 @@
       ObjectType="ViewObject" >
    </Containee>
    <Containee
+      Name="PositionGraphVO"
+      FullName="abc.oracle.apps.fnd.server.PositionGraphVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
       Name="TrainingAM"
       FullName="abc.oracle.apps.fnd.server.TrainingAM"
       ObjectType="AppModule" >
@@ -27,6 +32,11 @@
    <Containee
       Name="XxabcDeptEOVO"
       FullName="abc.oracle.apps.fnd.server.XxabcDeptEOVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="XxabcEmpEOVO"
+      FullName="abc.oracle.apps.fnd.server.XxabcEmpEOVO"
       ObjectType="ViewObject" >
    </Containee>
 </JboPackage>

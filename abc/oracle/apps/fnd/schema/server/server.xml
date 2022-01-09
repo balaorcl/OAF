@@ -14,4 +14,9 @@
       FullName="abc.oracle.apps.fnd.schema.server.XxabcDeptEO"
       ObjectType="Entity" >
    </Containee>
+   <Containee
+      Name="XxabcEmpEO"
+      FullName="abc.oracle.apps.fnd.schema.server.XxabcEmpEO"
+      ObjectType="Entity" >
+   </Containee>
 </JboPackage>

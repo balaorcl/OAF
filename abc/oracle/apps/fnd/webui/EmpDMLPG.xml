@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="mainRN" amDefName="abc.oracle.apps.fnd.server.TrainingAM" windowTitle="Emp DML Page" title="Emp DML Page" controllerClass="abc.oracle.apps.fnd.webui.EmpDMLCO">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="headerRN" text="Employee Details">
+               <ui:contents>
+                  <oa:table id="XxabcEmpEOTblRN">
+                     <ui:contents>
+                        <oa:messageStyledText id="Empno" dataType="NUMBER" prompt="Empno" viewName="XxabcEmpEOVO1" viewAttr="Empno" maximumLength="4"/>
+                        <oa:messageTextInput id="Ename" dataType="VARCHAR2" prompt="Ename" viewName="XxabcEmpEOVO1" viewAttr="Ename" maximumLength="10"/>
+                        <oa:messageTextInput id="Job" dataType="VARCHAR2" prompt="Job" viewName="XxabcEmpEOVO1" viewAttr="Job" maximumLength="9"/>
+                        <oa:messageTextInput id="Mgr" dataType="NUMBER" prompt="Mgr" viewName="XxabcEmpEOVO1" viewAttr="Mgr" maximumLength="4"/>
+                        <oa:messageTextInput id="Hiredate" dataType="DATE" prompt="Hiredate" viewName="XxabcEmpEOVO1" viewAttr="Hiredate"/>
+                        <oa:messageTextInput id="Sal" dataType="NUMBER" prompt="Sal" viewName="XxabcEmpEOVO1" viewAttr="Sal" maximumLength="7"/>
+                        <oa:messageTextInput id="Comm" dataType="NUMBER" prompt="Comm" viewName="XxabcEmpEOVO1" viewAttr="Comm" maximumLength="7"/>
+                        <oa:messageTextInput id="Deptno" dataType="NUMBER" prompt="Deptno" viewName="XxabcEmpEOVO1" viewAttr="Deptno" maximumLength="2"/>
+                     </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="region1">
+                           <ui:contents>
+                              <oa:submitButton id="insertRow" text="Insert" prompt="Insert"/>
+                              <oa:submitButton id="deleteRow" text="Delete" prompt="Delete"/>
+                              <oa:submitButton id="save" text="Save" prompt="Save"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                     <ui:tableSelection>
+                        <oa:multipleSelection id="multipleSelection1" viewName="XxabcEmpEOVO1" viewAttr="selectFlag"/>
+                     </ui:tableSelection>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

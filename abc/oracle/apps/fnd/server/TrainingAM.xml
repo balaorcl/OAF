@@ -25,4 +25,12 @@
       Name="XxabcDeptEOVO1"
       ViewObjectName="abc.oracle.apps.fnd.server.XxabcDeptEOVO" >
    </ViewUsage>
+   <ViewUsage
+      Name="XxabcEmpEOVO1"
+      ViewObjectName="abc.oracle.apps.fnd.server.XxabcEmpEOVO" >
+   </ViewUsage>
+   <ViewUsage
+      Name="PositionGraphVO1"
+      ViewObjectName="abc.oracle.apps.fnd.server.PositionGraphVO" >
+   </ViewUsage>
 </AppModule>

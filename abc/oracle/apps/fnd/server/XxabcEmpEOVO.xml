@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="XxabcEmpEOVO"
+   SelectList="XxabcEmpEO.EMPNO, 
+       XxabcEmpEO.ENAME, 
+       XxabcEmpEO.JOB, 
+       XxabcEmpEO.MGR, 
+       XxabcEmpEO.HIREDATE, 
+       XxabcEmpEO.SAL, 
+       XxabcEmpEO.COMM, 
+       XxabcEmpEO.DEPTNO"
+   FromList="XXABC_EMP XxabcEmpEO"
+   BindingStyle="OracleName"
+   CustomQuery="false"
+   RowClass="abc.oracle.apps.fnd.server.XxabcEmpEOVORowImpl"
+   ComponentClass="abc.oracle.apps.fnd.server.XxabcEmpEOVOImpl"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="XxabcEmpEO"
+      Entity="abc.oracle.apps.fnd.schema.server.XxabcEmpEO" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="Empno"
+      IsNotNull="true"
+      EntityAttrName="Empno"
+      EntityUsage="XxabcEmpEO"
+      AliasName="EMPNO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Ename"
+      EntityAttrName="Ename"
+      EntityUsage="XxabcEmpEO"
+      AliasName="ENAME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Job"
+      EntityAttrName="Job"
+      EntityUsage="XxabcEmpEO"
+      AliasName="JOB" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Mgr"
+      EntityAttrName="Mgr"
+      EntityUsage="XxabcEmpEO"
+      AliasName="MGR" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Hiredate"
+      EntityAttrName="Hiredate"
+      EntityUsage="XxabcEmpEO"
+      AliasName="HIREDATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Sal"
+      EntityAttrName="Sal"
+      EntityUsage="XxabcEmpEO"
+      AliasName="SAL" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Comm"
+      EntityAttrName="Comm"
+      EntityUsage="XxabcEmpEO"
+      AliasName="COMM" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Deptno"
+      EntityAttrName="Deptno"
+      EntityUsage="XxabcEmpEO"
+      AliasName="DEPTNO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="selectFlag"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VIEW_ATTR"
+      SQLType="VARCHAR" >
+   </ViewAttribute>
+</ViewObject>

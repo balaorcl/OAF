@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="mainRN" amDefName="abc.oracle.apps.fnd.server.TrainingAM" windowTitle="Graph Page" title="Graph Page">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:graphTable id="GraphTblRN" controllerClass="abc.oracle.apps.fnd.webui.GraphDemoCO">
+               <oa:graphs>
+                  <graph id="PositionBarGraph" title="Positions Bar Graph" size="large" xAxisLabel="Number of Employees" graphType="vertical stacked bar">
+                     <dataMap>
+                        <graphData id="YAxisData" viewName="PositionGraphVO1" viewAttr="CountPositionCode"/>
+                        <graphData id="XAxisData" viewName="PositionGraphVO1" viewAttr="PositionCode" graphAs="groupLabels"/>
+                     </dataMap>
+                  </graph>
+               </oa:graphs>
+            </oa:graphTable>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>
