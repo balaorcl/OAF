@@ -28,6 +28,21 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
     public TrainingAMImpl() {
     }
     
+    public void initValueSetVO(){
+        ValueSetVOImpl vo = getValueSetVO1();
+        vo.executeQuery();
+    }
+    
+    public void initPOTypesLookupVO(){
+        POTypesLookupVOImpl vo = getPOTypesLookupVO1();
+        vo.executeQuery();
+    }    
+    
+    public void initUserEmployeeVO(){
+        UserEmployeeDetailsVOImpl vo = getUserEmployeeDetailsVO1();
+        vo.executeQuery();
+    }
+    
     public void initGraphQuery(){
         PositionGraphVOImpl vo = getPositionGraphVO1();
         
@@ -130,6 +145,52 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
         
     }
     
+    // Delete Dept EOVORow
+    public void deleteDeptRows(){
+        XxabcDeptEOVOImpl vo = getXxabcDeptEOVO1();
+        XxabcDeptEOVORowImpl row = null;
+        
+        RowSetIterator rowIter = vo.createRowSetIterator("DeptRowIter");
+        String deptNoList = "";
+        
+        while(rowIter.hasNext()){
+            row = (XxabcDeptEOVORowImpl)rowIter.next();
+            String selectFlagStr = row.getselectFlag();
+            String deptNoStr = row.getDeptno().stringValue();
+            
+            System.out.println("DEPTNO="+deptNoStr+" "+
+                               "selectFlagStr="+selectFlagStr);
+            
+            if (selectFlagStr != null && "Y".equals(selectFlagStr)){
+                deptNoList += deptNoStr+",";
+                
+                row.remove();
+            }
+                               
+        }
+        
+        rowIter.closeRowSetIterator();
+        
+        throw new OAException("Deleted Rows="+deptNoList, OAException.INFORMATION);
+    }
+    
+    public void insertDeptEOVORow(){
+        XxabcDeptEOVOImpl vo = getXxabcDeptEOVO1();
+        XxabcDeptEOVORowImpl row = null;
+        
+        row = (XxabcDeptEOVORowImpl)vo.createRow();
+        row.setNewRowState(row.STATUS_INITIALIZED);
+        
+        vo.first();
+        vo.insertRow(row);
+    }
+    
+    // Save DeptEOVO
+    public void saveDeptEOVO(){
+        getOADBTransaction().commit();
+        throw new OAException("Data saved successfully", OAException.INFORMATION);
+    }
+    
     public void initXxabcDeptEOVO(){
         XxabcDeptEOVOImpl vo = getXxabcDeptEOVO1();
         vo.clearCache();
@@ -225,5 +286,23 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
      */
     public PositionGraphVOImpl getPositionGraphVO1() {
         return (PositionGraphVOImpl)findViewObject("PositionGraphVO1");
+    }
+
+    /**Container's getter for UserEmployeeDetailsVO1
+     */
+    public UserEmployeeDetailsVOImpl getUserEmployeeDetailsVO1() {
+        return (UserEmployeeDetailsVOImpl)findViewObject("UserEmployeeDetailsVO1");
+    }
+
+    /**Container's getter for POTypesLookupVO1
+     */
+    public POTypesLookupVOImpl getPOTypesLookupVO1() {
+        return (POTypesLookupVOImpl)findViewObject("POTypesLookupVO1");
+    }
+
+    /**Container's getter for ValueSetVO1
+     */
+    public ValueSetVOImpl getValueSetVO1() {
+        return (ValueSetVOImpl)findViewObject("ValueSetVO1");
     }
 }

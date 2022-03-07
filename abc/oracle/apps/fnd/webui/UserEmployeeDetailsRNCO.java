@@ -9,7 +9,6 @@ package abc.oracle.apps.fnd.webui;
 import abc.oracle.apps.fnd.server.TrainingAMImpl;
 
 import oracle.apps.fnd.common.VersionInfo;
-import oracle.apps.fnd.framework.OAFwkConstants;
 import oracle.apps.fnd.framework.webui.OAControllerImpl;
 import oracle.apps.fnd.framework.webui.OAPageContext;
 import oracle.apps.fnd.framework.webui.beans.OAWebBean;
@@ -17,7 +16,7 @@ import oracle.apps.fnd.framework.webui.beans.OAWebBean;
 /**
  * Controller for ...
  */
-public class DeptDMLCO extends OAControllerImpl
+public class UserEmployeeDetailsRNCO extends OAControllerImpl
 {
   public static final String RCS_ID="$Header$";
   public static final boolean RCS_ID_RECORDED =
@@ -31,15 +30,10 @@ public class DeptDMLCO extends OAControllerImpl
   public void processRequest(OAPageContext pageContext, OAWebBean webBean)
   {
     super.processRequest(pageContext, webBean);
-    
-    pageContext.writeDiagnostics(this,
-                                 "Using Diagnostics "+" Entered PR Method",
-                                 OAFwkConstants.STATEMENT);
-    
-    System.out.println("Using SOP -- Entered PR Method");
-    
+    System.out.println("Entered PR Method of UserEmployeeDetailsRNCO");
     TrainingAMImpl am = (TrainingAMImpl)pageContext.getApplicationModule(webBean);
-    am.initXxabcDeptEOVO();
+    am.initUserEmployeeVO();
+    
   }
 
   /**
@@ -51,35 +45,6 @@ public class DeptDMLCO extends OAControllerImpl
   public void processFormRequest(OAPageContext pageContext, OAWebBean webBean)
   {
     super.processFormRequest(pageContext, webBean);
-    
-    System.out.println("Using SOP -- Entered PFR Method");    
-    
-    pageContext.writeDiagnostics(this,
-                                 "Using Dianostics Entered PFR Method",
-                                 OAFwkConstants.STATEMENT);
-    
-    TrainingAMImpl am = (TrainingAMImpl)pageContext.getApplicationModule(webBean);    
-    
-    if(pageContext.getParameter("saveBtn")!=null){
-        pageContext.writeDiagnostics(this,
-                                    "Using Diagnostics - User clicked on SaveBtn",
-                                    OAFwkConstants.STATEMENT);    
-        am.saveDeptEOVO();
-    }
-    else if(pageContext.getParameter("createBtn")!=null){
-        pageContext.writeDiagnostics(this,
-                                     "Using Diagnostics - User clicked on createBtn",
-                                     OAFwkConstants.STATEMENT);     
-        am.insertDeptEOVORow();
-    }
-    else if(pageContext.getParameter("deleteBtn")!=null){
-        pageContext.writeDiagnostics(this,
-                                     "Using Diagnostics - User clicked on deleteBtn",
-                                     OAFwkConstants.STATEMENT);    
-        am.deleteDeptRows();                
-    }    
-    
-    
   }
 
 }

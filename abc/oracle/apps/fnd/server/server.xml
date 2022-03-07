@@ -25,9 +25,24 @@
       ObjectType="ViewObject" >
    </Containee>
    <Containee
+      Name="POTypesLookupVO"
+      FullName="abc.oracle.apps.fnd.server.POTypesLookupVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
       Name="TrainingAM"
       FullName="abc.oracle.apps.fnd.server.TrainingAM"
       ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="UserEmployeeDetailsVO"
+      FullName="abc.oracle.apps.fnd.server.UserEmployeeDetailsVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ValueSetVO"
+      FullName="abc.oracle.apps.fnd.server.ValueSetVO"
+      ObjectType="ViewObject" >
    </Containee>
    <Containee
       Name="XxabcDeptEOVO"

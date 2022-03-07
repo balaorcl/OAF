@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="mainRN" controllerClass="abc.oracle.apps.fnd.webui.AOLComponentsCO" amDefName="abc.oracle.apps.fnd.server.TrainingAM" windowTitle="AOL Sample" title="AOL Sample">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="aolMessageHdrRN" text="AOL Messages">
+               <ui:contents>
+                  <oa:submitButton id="invokeMsgBtn" text="Invoke Sample Msg" prompt="Invoke Sample Msg"/>
+                  <oa:submitButton id="invokeTokenMsgBtn" text="Invoke Token Msg" prompt="Invoke Token Msg"/>
+                  <oa:submitButton id="invokeBundledExpBtn" text="Invoke Bundled Exception" prompt="Invoke Bundled Exception"/>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="lookupsHdrRN" text="Lookup Hdr RN">
+               <ui:contents>
+                  <oa:table id="POTypesLookupTblRN">
+                     <ui:contents>
+                        <oa:messageStyledText id="LookupCode" dataType="VARCHAR2" prompt="LookupCode" viewName="POTypesLookupVO1" viewAttr="LookupCode" maximumLength="30"/>
+                        <oa:messageStyledText id="Meaning" dataType="VARCHAR2" prompt="Meaning" viewName="POTypesLookupVO1" viewAttr="Meaning" maximumLength="80"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="valueSetHdrRN" text="ValueSet Hdr RN">
+               <ui:contents>
+                  <oa:table id="ValueSetVOTblRN">
+                     <ui:contents>
+                        <oa:messageStyledText id="FlexValueSetId" dataType="NUMBER" prompt="FlexValueSetId" viewName="ValueSetVO1" viewAttr="FlexValueSetId" maximumLength="10"/>
+                        <oa:messageStyledText id="FlexValue" dataType="VARCHAR2" prompt="FlexValue" viewName="ValueSetVO1" viewAttr="FlexValue" maximumLength="150"/>
+                        <oa:messageStyledText id="Description" dataType="VARCHAR2" prompt="Description" viewName="ValueSetVO1" viewAttr="Description" maximumLength="240"/>
+                     </ui:contents>
+                  </oa:table>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

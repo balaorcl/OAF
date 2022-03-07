@@ -6,6 +6,7 @@
             <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
          </ui:corporateBranding>
          <ui:contents>
+            <oa:header id="empSharedRN" extends="/abc/oracle/apps/fnd/webui/UserEmployeeDetailsRN"/>
             <oa:header id="DeptHDRRN" text="Dept Details">
                <ui:contents>
                   <oa:table id="XxabcDeptEOTblRN">
@@ -14,6 +15,18 @@
                         <oa:messageTextInput id="Dname" dataType="VARCHAR2" prompt="Dname" viewName="XxabcDeptEOVO1" viewAttr="Dname" maximumLength="14"/>
                         <oa:messageTextInput id="Loc" dataType="VARCHAR2" prompt="Loc" viewName="XxabcDeptEOVO1" viewAttr="Loc" maximumLength="13"/>
                      </ui:contents>
+                     <ui:tableActions>
+                        <oa:flowLayout id="region1">
+                           <ui:contents>
+                              <oa:submitButton id="saveBtn" text="Save" prompt="Save"/>
+                              <oa:submitButton id="createBtn" text="Create" prompt="Create"/>
+                              <oa:submitButton id="deleteBtn" text="Delete" prompt="Delete"/>
+                           </ui:contents>
+                        </oa:flowLayout>
+                     </ui:tableActions>
+                     <ui:tableSelection>
+                        <oa:multipleSelection id="multipleSelection1" viewName="XxabcDeptEOVO1" viewAttr="selectFlag"/>
+                     </ui:tableSelection>
                   </oa:table>
                </ui:contents>
             </oa:header>
