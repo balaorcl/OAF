@@ -5,7 +5,10 @@ import abc.oracle.apps.fnd.poplist.server.InventoryOrgPopVOImpl;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import java.sql.CallableStatement;
 import java.sql.SQLException;
+
+import java.sql.Types;
 
 import oracle.apps.fnd.common.MessageToken;
 import oracle.apps.fnd.framework.OAException;
@@ -26,6 +29,60 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
     /**This is the default constructor (do not remove)
      */
     public TrainingAMImpl() {
+    }
+    
+    public void initLEVO(String leIDStr){
+        InvokeGetLEFunVOImpl vo = getInvokeGetLEFunVO1();
+        vo.clearCache();
+        vo.setWhereClause(null);
+        vo.setWhereClauseParam(0, leIDStr);
+        vo.executeQuery();
+    }
+    
+    public String invokeLEPLSQLFun(String leIDStr){
+        System.out.println("Invoke PLSQL Fun");    
+        String leNameStr = "";
+        String stmt = "BEGIN :1 := XXABC_PLSQL_UTILS.GET_LE_NAME(:2); END;";
+        CallableStatement cs = getOADBTransaction().createCallableStatement(stmt, 1);
+        
+        try  {
+            cs.registerOutParameter(1, Types.VARCHAR);
+            cs.setInt(2, Integer.parseInt(leIDStr));
+            cs.execute();
+            leNameStr = cs.getString(1);
+            cs.close();
+        } catch (Exception ex)  {
+            ex.printStackTrace();
+        } 
+        finally  {
+        }
+        
+        return leNameStr;
+    }
+    
+    public String invokeLEPLSQLPRO(String leIDStr){
+        String leNameStr = "";
+        String stmt = "BEGIN " +
+                      "XXABC_PLSQL_UTILS.GET_LE_NAME_PROC" +
+                      "(P_LEGAL_ENTITY_ID => :1" +
+                      ",P_LEGAL_ENTITY_NAME => :2" +
+                      "); " +
+                      "END;";
+        CallableStatement cs = getOADBTransaction().createCallableStatement(stmt, 1);
+        
+        try  {
+            cs.setInt(1, Integer.parseInt(leIDStr));
+            cs.registerOutParameter(2, Types.VARCHAR);
+            cs.execute();
+            leNameStr = cs.getString(2);
+            cs.close();
+        } catch (Exception ex)  {
+            ex.printStackTrace();
+        } finally  {
+        }
+        
+        return leNameStr;
+        
     }
     
     public void initValueSetVO(){
@@ -304,5 +361,11 @@ public class TrainingAMImpl extends OAApplicationModuleImpl {
      */
     public ValueSetVOImpl getValueSetVO1() {
         return (ValueSetVOImpl)findViewObject("ValueSetVO1");
+    }
+
+    /**Container's getter for InvokeGetLEFunVO1
+     */
+    public InvokeGetLEFunVOImpl getInvokeGetLEFunVO1() {
+        return (InvokeGetLEFunVOImpl)findViewObject("InvokeGetLEFunVO1");
     }
 }

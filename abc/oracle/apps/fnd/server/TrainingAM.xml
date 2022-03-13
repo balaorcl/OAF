@@ -45,4 +45,8 @@
       Name="ValueSetVO1"
       ViewObjectName="abc.oracle.apps.fnd.server.ValueSetVO" >
    </ViewUsage>
+   <ViewUsage
+      Name="InvokeGetLEFunVO1"
+      ViewObjectName="abc.oracle.apps.fnd.server.InvokeGetLEFunVO" >
+   </ViewUsage>
 </AppModule>

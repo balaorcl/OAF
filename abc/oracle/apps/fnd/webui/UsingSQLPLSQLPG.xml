@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<page xmlns:jrad="http://xmlns.oracle.com/jrad" xmlns:oa="http://xmlns.oracle.com/oa" xmlns:ui="http://xmlns.oracle.com/uix/ui" version="10.1.3_1312" xml:lang="en-US" xmlns:user="http://xmlns.oracle.com/jrad/user" xmlns="http://xmlns.oracle.com/jrad" file-version="$Header$">
+   <content>
+      <oa:pageLayout id="mainRN" amDefName="abc.oracle.apps.fnd.server.TrainingAM" controllerClass="abc.oracle.apps.fnd.webui.UsingSQLPLSQLCO" windowTitle="OAF with PLSQL Fun">
+         <ui:corporateBranding>
+            <oa:image id="corporateBrandingImage" source="/OA_MEDIA/FNDSSCORP.gif"/>
+         </ui:corporateBranding>
+         <ui:contents>
+            <oa:header id="usingVOHdr" text="Using Function in VO">
+               <ui:contents>
+                  <oa:messageTextInput id="leID"/>
+                  <oa:messageStyledText id="leName" viewName="InvokeGetLEFunVO1" viewAttr="LeName" prompt="Legal Entity"/>
+                  <oa:submitButton id="voBtn" text="Invoke VO" prompt="Invoke VO"/>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="usingCallableStaFunHdr" text="Using Callbale Statement Function Header">
+               <ui:contents>
+                  <oa:messageTextInput id="le2ID" prompt="Legal Entity"/>
+                  <oa:messageStyledText id="le2Name" prompt="Legal Entity"/>
+                  <oa:submitButton id="funBtn" text="Invoke Function" prompt="Invoke Function"/>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="usingCallableStaProHdr" text="Using Callable Statement Procedure">
+               <ui:contents>
+                  <oa:messageTextInput id="le3ID" prompt="Legal Entity ID"/>
+                  <oa:messageStyledText id="le3NameID"/>
+                  <oa:submitButton id="proBtn" text="Invoke Procedure" prompt="Invoke Procedure"/>
+               </ui:contents>
+            </oa:header>
+            <oa:header id="usingPreparedStmHdr" text="usingPreparedStmHdr">
+               <ui:contents>
+                  <oa:messageTextInput id="le4ID" viewName="Legal Entity ID"/>
+                  <oa:messageStyledText id="le4Name" prompt="Legal Entity Name"/>
+                  <oa:submitButton id="preBtn" text="Invoke Prepared Statement" prompt="Invoke Prepared Statement"/>
+               </ui:contents>
+            </oa:header>
+         </ui:contents>
+      </oa:pageLayout>
+   </content>
+</page>

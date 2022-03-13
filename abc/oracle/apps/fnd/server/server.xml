@@ -15,6 +15,11 @@
       ObjectType="ViewObject" >
    </Containee>
    <Containee
+      Name="InvokeGetLEFunVO"
+      FullName="abc.oracle.apps.fnd.server.InvokeGetLEFunVO"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
       Name="ItemDetailsVO"
       FullName="abc.oracle.apps.fnd.server.ItemDetailsVO"
       ObjectType="ViewObject" >
@@ -32,6 +37,11 @@
    <Containee
       Name="TrainingAM"
       FullName="abc.oracle.apps.fnd.server.TrainingAM"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="TrainingServAM"
+      FullName="abc.oracle.apps.fnd.server.TrainingServAM"
       ObjectType="AppModule" >
    </Containee>
    <Containee
